@@ -10,6 +10,10 @@ public class SubjectClick : MonoBehaviour
     private Material middleMaterial;
     private Material frontMaterial;
 
+    
+    public Color MatColor;
+    public Color FyzColor;
+
     public float LerpSpeed;
 
     private Color newCol;
@@ -27,9 +31,9 @@ public class SubjectClick : MonoBehaviour
 
         BtnClicked = true;
         if (i == 0)
-            newCol = Color.green;
+            newCol = FyzColor;
         if (i == 1)
-            newCol = Color.blue;
+            newCol = MatColor;
         //StartCoroutine(LerpColor(middleMaterial, newCol));
         //StartCoroutine(LerpColor(frontMaterial, newCol));
     }

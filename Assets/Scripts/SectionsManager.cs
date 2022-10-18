@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SectionsManager : MonoBehaviour
 {
-    public int Section = -1;
+    public int Section = 0;
     [SerializeField] private Button Btn1;
     [SerializeField] private Button Btn2;
     [SerializeField] private Button Btn3;
@@ -15,7 +15,7 @@ public class SectionsManager : MonoBehaviour
 
     private void Start()
     {
-
+        ShowScene();
     }
 
     public void BtnClicked(int btnIndex)

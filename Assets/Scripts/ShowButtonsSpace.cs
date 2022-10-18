@@ -15,9 +15,17 @@ public class ShowButtonsSpace : MonoBehaviour
         anim = panel.GetComponent<Animator>();
     }
 
+    private void Update()
+    {
+        if (panel.activeInHierarchy && Input.GetKeyDown(KeyCode.Mouse0)) 
+        {
+            anim.SetTrigger("Leave");
+            StartCoroutine(WaitAndDisable());
+        }
+    }
+
     public void ShowButtonSpace()
     {
-        Debug.Log("S");
         if(!panel.activeInHierarchy)
         panel.SetActive(true);
         else

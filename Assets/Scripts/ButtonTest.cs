@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class ButtonTest : MonoBehaviour
 {
     [SerializeField] private Button btn;
-    private SpriteRenderer _renderer;
+    private Image _renderer;
 
     private void Start()
     {
-        _renderer = GameObject.Find("MiddleButton").GetComponent<SpriteRenderer>();
+        _renderer = GameObject.Find("Button").GetComponent<Image>();
         btn = GetComponent<Button>();
         btn.onClick.AddListener(() =>
         {
