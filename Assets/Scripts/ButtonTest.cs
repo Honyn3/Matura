@@ -17,6 +17,7 @@ public class ButtonTest : MonoBehaviour
         {
             _renderer.material.SetInt("_Rotate", Mathf.Abs(_renderer.material.GetInt("_Rotate")-1));
             Debug.Log("Button Pressed");
+            GetComponent<ShowButtonsSpace>().ShowButtonSpace();
         });
     }
 }
