@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SubjectClick : MonoBehaviour
 {
+    public int SubjectIndex;
+
     [SerializeField] private GameObject MiddleButton;
     [SerializeField] private GameObject Front;
 
@@ -31,9 +33,14 @@ public class SubjectClick : MonoBehaviour
 
         BtnClicked = true;
         if (i == 0)
+        {
             newCol = FyzColor;
+        }
         if (i == 1)
+        {
             newCol = MatColor;
+        }
+        SubjectIndex = i;
         //StartCoroutine(LerpColor(middleMaterial, newCol));
         //StartCoroutine(LerpColor(frontMaterial, newCol));
     }
