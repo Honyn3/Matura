@@ -16,10 +16,12 @@ public class AddQuestionsManager : MonoBehaviour
     [SerializeField] private TMP_InputField InputWrong2;
     [SerializeField] private TMP_InputField InputWrong3;
 
-    //private void Start()
-    //{
-    //    Questions = SaveSystem.LoadData().Fyzika;
-    //}
+    private Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponentInParent<Animator>();
+    }
 
     public void AddButtonPress(SubjectClick subjectClick)
     {
@@ -89,5 +91,10 @@ public class AddQuestionsManager : MonoBehaviour
         InputWrong1.text = "";
         InputWrong2.text = "";
         InputWrong3.text = "";
+    }
+
+    public void RemoveButtonClick()
+    {
+        anim.SetBool("RemoveShow", !anim.GetBool("RemoveShow"));
     }
 }
