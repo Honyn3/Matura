@@ -9,6 +9,15 @@ public class SaveData
     public List<string[]> Fyzika = new List<string[]>();
     public List<string[]> Matematika = new List<string[]>();
 
+    public SaveData(int Subject, int Index)
+    {
+        Fyzika = SaveSystem.LoadData().Fyzika;
+        Matematika = SaveSystem.LoadData().Matematika;
+        if (Subject == 0)
+            Fyzika.RemoveAt(Index);
+        if (Subject == 1)
+            Matematika.RemoveAt(Index);
+    }
     public SaveData(AddQuestionsManager addManager, SubjectClick subjectIndex)
     {
         Fyzika = SaveSystem.LoadData().Fyzika;
@@ -17,5 +26,15 @@ public class SaveData
         Fyzika.Add(addManager.Question);
         if (subjectIndex.SubjectIndex == 1)
         Matematika.Add(addManager.Question);
+    }
+
+    public void RemoveData(int Subject, int Index)
+    {
+        Fyzika = SaveSystem.LoadData().Fyzika;
+        Matematika = SaveSystem.LoadData().Matematika;
+        if (Subject == 0)
+            Fyzika.RemoveAt(Index);
+        if (Subject == 1)
+            Matematika.RemoveAt(Index);
     }
 }

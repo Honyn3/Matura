@@ -17,6 +17,35 @@ public static class SaveSystem
         stream.Close();
     }
 
+    public static void RemoveData(int Subject, int Index)
+    {
+        BinaryFormatter formater = new BinaryFormatter();
+
+        string path = Application.persistentDataPath + "/data.lol";
+
+
+        SaveData data = new SaveData(Subject, Index);
+        FileStream stream = new FileStream(path, FileMode.Create);
+        formater.Serialize(stream, data);
+        stream.Close();
+    }
+
+    //public static void RemoveData(int Subject, int index, AddQuestionsManager addManager, SubjectClick subjectIndex)
+    //{
+    //    SaveData data = new SaveData(addManager, subjectIndex);
+    //    data.RemoveData(Subject, index);
+    //    SaveData(addManager, subjectIndex);
+    //    SaveData data = LoadData();
+    //    if (Subject == 0)
+    //    {
+    //        data.Fyzika.RemoveAt(index);
+    //    }
+    //    if (Subject == 1)
+    //    {
+    //        data.Matematika.RemoveAt(index);
+    //    }
+    //}
+
     public static SaveData LoadData()
     {
         string path = Application.persistentDataPath + "/data.lol";
