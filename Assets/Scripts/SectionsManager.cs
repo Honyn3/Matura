@@ -20,7 +20,11 @@ public class SectionsManager : MonoBehaviour
 
     public void BtnClicked(int btnIndex)
     {
-        if (btnIndex == Section) return;
+        if (btnIndex == Section)
+        {
+            ResetAnims(anims[btnIndex]);
+            return;
+        }
         HideScene(Section);
         switch (btnIndex)
         {
@@ -37,6 +41,21 @@ public class SectionsManager : MonoBehaviour
     private void HideScene(int sec)
     {
         anims[sec].SetBool("Show", false);
+        StartCoroutine(WaitAndReset(anims[sec]));
+    }
+
+    private IEnumerator WaitAndReset(Animator animator)
+    {
+        yield return new WaitForSeconds(1f);
+        animator.Rebind();
+        animator.Update(0f);
+    }
+
+    private void ResetAnims(Animator animator)
+    {
+        animator.Rebind();
+        animator.Update(0f);
+        ShowScene();
     }
 
     private void ShowScene()
