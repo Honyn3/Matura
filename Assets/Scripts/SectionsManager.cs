@@ -10,26 +10,47 @@ public class SectionsManager : MonoBehaviour
     [SerializeField] private Button Btn2;
     [SerializeField] private Button Btn3;
     [SerializeField] private Button Btn4;
+    private Image[] buttons = new Image[4];
+    public Sprite[] UnselectedSprites;
+    public Sprite[] SelectedSprites;
 
-    [SerializeField] private Animator[] anims = new Animator[4];
     [SerializeField] private Animator AnimatorManager;
 
     private void Start()
     {
         ShowScene();
+        buttons[0] = Btn1.GetComponent<Image>();
+        buttons[1] = Btn2.GetComponent<Image>();
+        buttons[2] = Btn3.GetComponent<Image>();
+        buttons[3] = Btn4.GetComponent<Image>();
     }
 
     public void BtnClicked(int btnIndex)
     {
         if (btnIndex == Section)
         {
-            //ResetAnims(anims[btnIndex]);
             ResetAnims();
             return;
         }
         HideScene(Section);
         Section = btnIndex;
         ShowScene();
+        SetButtonSprites();
+    }
+
+    private void SetButtonSprites()
+    {
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            if(i == Section)
+            {
+                buttons[i].sprite = SelectedSprites[i];
+            }
+            else
+            {
+                buttons[i].sprite = UnselectedSprites[i];
+            }
+        }
     }
 
     private void HideScene(int sec)
@@ -37,21 +58,18 @@ public class SectionsManager : MonoBehaviour
         string BoolName = "Show" + sec.ToString();
         Debug.Log(BoolName);
         AnimatorManager.SetBool(BoolName, false);
-        //StartCoroutine(WaitAndReset(AnimatorManager));
     }
 
-    private IEnumerator WaitAndReset(Animator animator)
-    {
-        yield return new WaitForSeconds(1f);
-        animator.Rebind();
-        animator.Update(0f);
-    }
+    //private IEnumerator WaitAndReset(Animator animator)
+    //{
+    //    yield return new WaitForSeconds(1f);
+    //    animator.Rebind();
+    //    animator.Update(0f);
+    //}
 
     private void ResetAnims()
     {
         AnimatorManager.SetBool("SelectSubject", false);
-        //animator.Rebind();
-        //animator.Update(0f);
         ShowScene();
     }
 
