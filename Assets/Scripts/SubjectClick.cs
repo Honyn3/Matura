@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SubjectClick : MonoBehaviour
 {
     public int SubjectIndex;
     private Animator anim;
+    [SerializeField] TextMeshProUGUI[] SubjectNames;
 
     //[SerializeField] private GameObject MiddleButton;
     //[SerializeField] private GameObject Front;
@@ -24,7 +26,7 @@ public class SubjectClick : MonoBehaviour
 
     private void Start()
     {
-        anim = GameObject.Find("AddQuestionsButton").GetComponent<Animator>();
+        anim = GameObject.Find("Canvas").GetComponent<Animator>();
         anim.SetBool("SelectSubject", false);
         //middleMaterial = MiddleButton.GetComponent<Renderer>().material;
         //frontMaterial = Front.GetComponent<Renderer>().material;
@@ -45,13 +47,20 @@ public class SubjectClick : MonoBehaviour
         //}
         SubjectIndex = i;
         anim.SetBool("SelectSubject", true);
-        
+
+        foreach (var item in SubjectNames)
+        {
+            if (SubjectIndex == 0)
+                item.text = "Fyzika";
+            if (SubjectIndex == 1)
+                item.text = "Matematika";
+        }
     }
 
-    private void Update()
-    {
+    //private void Update()
+    //{
         //if (BtnClicked == false) return;
         //middleMaterial.SetColor("_Color", Color.Lerp(middleMaterial.GetColor("_Color"), newCol, LerpSpeed));
         //frontMaterial.SetColor("_Color", Color.Lerp(frontMaterial.GetColor("_Color"), newCol, LerpSpeed));
-    }
+    //}
 }

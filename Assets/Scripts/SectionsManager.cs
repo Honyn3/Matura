@@ -12,6 +12,7 @@ public class SectionsManager : MonoBehaviour
     [SerializeField] private Button Btn4;
 
     [SerializeField] private Animator[] anims = new Animator[4];
+    [SerializeField] private Animator AnimatorManager;
 
     private void Start()
     {
@@ -22,26 +23,21 @@ public class SectionsManager : MonoBehaviour
     {
         if (btnIndex == Section)
         {
-            ResetAnims(anims[btnIndex]);
+            //ResetAnims(anims[btnIndex]);
+            ResetAnims();
             return;
         }
         HideScene(Section);
-        switch (btnIndex)
-        {
-            case 0: Section = 0; break;
-                case 1: Section = 1; break;
-            case 2: Section = 2; break;
-                case 3: Section = 3; break;
-            default:
-                break;
-        }
+        Section = btnIndex;
         ShowScene();
     }
 
     private void HideScene(int sec)
     {
-        anims[sec].SetBool("Show", false);
-        StartCoroutine(WaitAndReset(anims[sec]));
+        string BoolName = "Show" + sec.ToString();
+        Debug.Log(BoolName);
+        AnimatorManager.SetBool(BoolName, false);
+        //StartCoroutine(WaitAndReset(AnimatorManager));
     }
 
     private IEnumerator WaitAndReset(Animator animator)
@@ -51,15 +47,17 @@ public class SectionsManager : MonoBehaviour
         animator.Update(0f);
     }
 
-    private void ResetAnims(Animator animator)
+    private void ResetAnims()
     {
-        animator.Rebind();
-        animator.Update(0f);
+        AnimatorManager.SetBool("SelectSubject", false);
+        //animator.Rebind();
+        //animator.Update(0f);
         ShowScene();
     }
 
     private void ShowScene()
     {
-        anims[Section].SetBool("Show", true);
+        string BoolName = "Show" + Section.ToString();
+        AnimatorManager.SetBool(BoolName, true);
     }
 }
