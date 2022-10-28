@@ -8,6 +8,7 @@ public class SubjectClick : MonoBehaviour
     public int SubjectIndex;
     private Animator anim;
     [SerializeField] TextMeshProUGUI[] SubjectNames;
+    [SerializeField] QuestionScrolling scroll;
 
     //[SerializeField] private GameObject MiddleButton;
     //[SerializeField] private GameObject Front;
@@ -28,6 +29,7 @@ public class SubjectClick : MonoBehaviour
     {
         anim = GameObject.Find("Canvas").GetComponent<Animator>();
         anim.SetBool("SelectSubject", false);
+
         //middleMaterial = MiddleButton.GetComponent<Renderer>().material;
         //frontMaterial = Front.GetComponent<Renderer>().material;
     }
@@ -55,6 +57,7 @@ public class SubjectClick : MonoBehaviour
             if (SubjectIndex == 1)
                 item.text = "Matematika";
         }
+        scroll.SubjectClicked(SubjectIndex);
     }
 
     //private void Update()
