@@ -2198,8 +2198,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: 240, y: -50}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &500144043
 MonoBehaviour:
@@ -2244,7 +2244,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 500144044}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1306630599}
+        m_TargetAssemblyTypeName: QuestionScrolling, Assembly-CSharp
+        m_MethodName: AnswerClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &500144044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2265,8 +2277,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 206e33a53afbca64e820320269eade1f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2842,8 +2854,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -400}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: -240, y: -500}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &574541584
 MonoBehaviour:
@@ -2888,7 +2900,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 574541585}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1306630599}
+        m_TargetAssemblyTypeName: QuestionScrolling, Assembly-CSharp
+        m_MethodName: AnswerClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &574541585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2909,8 +2933,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 0d5898a2f3de0844b81e900264cb314d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3680,8 +3704,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: -240, y: -50}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &690935651
 MonoBehaviour:
@@ -3712,7 +3736,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 04bf2610b285c1a479d64902cd80eda0, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -3726,7 +3750,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 690935652}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1306630599}
+        m_TargetAssemblyTypeName: QuestionScrolling, Assembly-CSharp
+        m_MethodName: AnswerClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &690935652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3747,8 +3783,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 277d8f00a9bd2cf4aaf280b77807fddb, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5210,6 +5246,7 @@ GameObject:
   - component: {fileID: 1120643155}
   - component: {fileID: 1120643157}
   - component: {fileID: 1120643156}
+  - component: {fileID: 1120643158}
   m_Layer: 5
   m_Name: Panel1
   m_TagString: Untagged
@@ -5255,7 +5292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7747073, g: 1, b: 0, a: 0.39215687}
+  m_Color: {r: 0.67058825, g: 0.67058825, b: 0.67058825, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5280,6 +5317,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120643154}
   m_CullTransparentMesh: 1
+--- !u!95 &1120643158
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120643154}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ffed07a0aecb12b47a4492cadcc2981e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1122487646
 GameObject:
   m_ObjectHideFlags: 0
@@ -6350,6 +6407,27 @@ MonoBehaviour:
   - {fileID: 279160466}
   - {fileID: 1012934231}
   - {fileID: 1860143257}
+  Buttons1:
+  - {fileID: 690935651}
+  - {fileID: 1483202753}
+  - {fileID: 1403821229}
+  - {fileID: 2081381132}
+  Buttons2:
+  - {fileID: 1882623044}
+  - {fileID: 1577481765}
+  - {fileID: 574541584}
+  - {fileID: 1567857841}
+  Buttons3:
+  - {fileID: 1965811747}
+  - {fileID: 500144043}
+  - {fileID: 1843362961}
+  - {fileID: 1701900651}
+  WhiteButton: {fileID: 21300000, guid: 04bf2610b285c1a479d64902cd80eda0, type: 3}
+  ButtonSprite1: {fileID: 21300000, guid: 277d8f00a9bd2cf4aaf280b77807fddb, type: 3}
+  ButtonSprite2: {fileID: 21300000, guid: 206e33a53afbca64e820320269eade1f, type: 3}
+  ButtonSprite3: {fileID: 21300000, guid: 0d5898a2f3de0844b81e900264cb314d, type: 3}
+  ButtonSprite4: {fileID: 21300000, guid: 7de6e7a9423289341854f34979ee49a3, type: 3}
+  LerpSpeed: 0.012
 --- !u!1 &1331888723
 GameObject:
   m_ObjectHideFlags: 0
@@ -6844,8 +6922,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -400}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: -240, y: -500}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1403821229
 MonoBehaviour:
@@ -6890,7 +6968,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1403821230}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1306630599}
+        m_TargetAssemblyTypeName: QuestionScrolling, Assembly-CSharp
+        m_MethodName: AnswerClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1403821230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6911,8 +7001,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 0d5898a2f3de0844b81e900264cb314d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7100,8 +7190,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: 240, y: -50}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1483202753
 MonoBehaviour:
@@ -7146,7 +7236,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1483202754}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1306630599}
+        m_TargetAssemblyTypeName: QuestionScrolling, Assembly-CSharp
+        m_MethodName: AnswerClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1483202754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7167,8 +7269,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 206e33a53afbca64e820320269eade1f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7376,7 +7478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.030683517, a: 0.39215687}
+  m_Color: {r: 0.67058825, g: 0.67058825, b: 0.67058825, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7491,8 +7593,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -400}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: 240, y: -500}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1567857841
 MonoBehaviour:
@@ -7537,7 +7639,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1567857842}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1306630599}
+        m_TargetAssemblyTypeName: QuestionScrolling, Assembly-CSharp
+        m_MethodName: AnswerClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1567857842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7558,8 +7672,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7de6e7a9423289341854f34979ee49a3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7613,8 +7727,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: 240, y: -50}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1577481765
 MonoBehaviour:
@@ -7659,7 +7773,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1577481766}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1306630599}
+        m_TargetAssemblyTypeName: QuestionScrolling, Assembly-CSharp
+        m_MethodName: AnswerClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1577481766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7680,8 +7806,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 206e33a53afbca64e820320269eade1f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8467,8 +8593,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -400}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: 240, y: -500}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701900651
 MonoBehaviour:
@@ -8513,7 +8639,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1701900652}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1306630599}
+        m_TargetAssemblyTypeName: QuestionScrolling, Assembly-CSharp
+        m_MethodName: AnswerClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1701900652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8534,8 +8672,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7de6e7a9423289341854f34979ee49a3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8915,8 +9053,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -400}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: -240, y: -500}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1843362961
 MonoBehaviour:
@@ -8961,7 +9099,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1843362962}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1306630599}
+        m_TargetAssemblyTypeName: QuestionScrolling, Assembly-CSharp
+        m_MethodName: AnswerClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1843362962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8982,8 +9132,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 0d5898a2f3de0844b81e900264cb314d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -9953,8 +10103,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: -240, y: -50}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1882623044
 MonoBehaviour:
@@ -9999,7 +10149,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1882623045}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1306630599}
+        m_TargetAssemblyTypeName: QuestionScrolling, Assembly-CSharp
+        m_MethodName: AnswerClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1882623045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10020,8 +10182,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 277d8f00a9bd2cf4aaf280b77807fddb, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10151,8 +10313,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: -240, y: -50}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1965811747
 MonoBehaviour:
@@ -10197,7 +10359,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1965811748}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1306630599}
+        m_TargetAssemblyTypeName: QuestionScrolling, Assembly-CSharp
+        m_MethodName: AnswerClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1965811748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10218,8 +10392,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 277d8f00a9bd2cf4aaf280b77807fddb, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10292,7 +10466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.6341174, b: 0, a: 0.39215687}
+  m_Color: {r: 0.67058825, g: 0.67058825, b: 0.67058825, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10648,8 +10822,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -400}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: 240, y: -500}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2081381132
 MonoBehaviour:
@@ -10694,7 +10868,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2081381133}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1306630599}
+        m_TargetAssemblyTypeName: QuestionScrolling, Assembly-CSharp
+        m_MethodName: AnswerClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2081381133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10715,8 +10901,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7de6e7a9423289341854f34979ee49a3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
