@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class SubjectClick : MonoBehaviour
 {
     public int SubjectIndex;
     private Animator anim;
-    [SerializeField] TextMeshProUGUI[] SubjectNames;
+    [SerializeField] TextMeshProUGUI SubjectName;
     [SerializeField] QuestionScrolling scroll;
 
     //[SerializeField] private GameObject MiddleButton;
@@ -50,13 +51,10 @@ public class SubjectClick : MonoBehaviour
         SubjectIndex = i;
         anim.SetBool("SelectSubject", true);
 
-        foreach (var item in SubjectNames)
-        {
-            if (SubjectIndex == 0)
-                item.text = "Fyzika";
-            if (SubjectIndex == 1)
-                item.text = "Matematika";
-        }
+        if (SubjectIndex == 0)
+            SubjectName.text = "Fyzika";
+        if (SubjectIndex == 1)
+            SubjectName.text = "Matematika";
         scroll.SubjectClicked(SubjectIndex);
     }
 

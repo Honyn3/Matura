@@ -20,8 +20,17 @@ public class SaveData
     }
     public SaveData(AddQuestionsManager addManager, SubjectClick subjectIndex)
     {
-        Fyzika = SaveSystem.LoadData().Fyzika;
-        Matematika = SaveSystem.LoadData().Matematika;
+        try
+        {
+            Fyzika = SaveSystem.LoadData().Fyzika;
+            Matematika = SaveSystem.LoadData().Matematika;
+        }
+        catch (System.Exception)
+        {
+            Debug.Log("Failed to load data! Maybe empty file?");
+        }
+        
+
         if (subjectIndex.SubjectIndex == 0)
         Fyzika.Add(addManager.Question);
         if (subjectIndex.SubjectIndex == 1)

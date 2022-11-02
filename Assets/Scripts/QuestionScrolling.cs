@@ -10,7 +10,6 @@ using UnityEngine.UI;
 public class QuestionScrolling : MonoBehaviour
 {
     [SerializeField] private GameObject[] panels;
-    [SerializeField] private GameObject[] panelsPrefab;
     [SerializeField] private GameObject content;
     [SerializeField] private ScrollRect ScrollRect;
     [SerializeField] private GameObject SelectSubjectPanel;
@@ -60,8 +59,16 @@ public class QuestionScrolling : MonoBehaviour
 
     private List<string[]> GetData()
     {
-        if (SubjectIndex == 0) return SaveSystem.LoadData().Fyzika;
-        if (SubjectIndex == 1) return SaveSystem.LoadData().Matematika;
+        try
+        {
+            if (SubjectIndex == 0) return SaveSystem.LoadData().Fyzika;
+            if (SubjectIndex == 1) return SaveSystem.LoadData().Matematika;
+        }
+        catch (System.Exception)
+        {
+            Debug.Log("Missing data in file!");
+        }
+        
         Debug.LogWarning("Chyba - Špatný subject index");
         return null;
     }
