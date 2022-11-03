@@ -13,11 +13,13 @@ public class SectionsManager : MonoBehaviour
     private Image[] buttons = new Image[4];
     public Sprite[] UnselectedSprites;
     public Sprite[] SelectedSprites;
+    public GameObject QuestionScrollToReload;
 
     [SerializeField] private Animator AnimatorManager;
 
     private void Start()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         ShowScene();
         buttons[0] = Btn1.GetComponent<Image>();
         buttons[1] = Btn2.GetComponent<Image>();
@@ -31,6 +33,10 @@ public class SectionsManager : MonoBehaviour
         {
             ResetAnims();
             return;
+        }
+        if(btnIndex == 0)
+        {
+            QuestionScrollToReload.GetComponent<QuestionScrolling>().Reload();
         }
         HideScene(Section);
         Section = btnIndex;

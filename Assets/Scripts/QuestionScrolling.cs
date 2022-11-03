@@ -12,7 +12,7 @@ public class QuestionScrolling : MonoBehaviour
     [SerializeField] private GameObject[] panels;
     [SerializeField] private GameObject content;
     [SerializeField] private ScrollRect ScrollRect;
-    [SerializeField] private GameObject SelectSubjectPanel;
+    [SerializeField] private GameObject QuestionsPanel;
 
     [SerializeField] private TextMeshProUGUI[] QuestionTexts;
     [SerializeField] private TextMeshProUGUI[] Answers1;
@@ -23,6 +23,8 @@ public class QuestionScrolling : MonoBehaviour
     [SerializeField] private Button[] Buttons1;
     [SerializeField] private Button[] Buttons2;
     [SerializeField] private Button[] Buttons3;
+
+    [SerializeField] private Animator CheckAnim;
 
     public Sprite WhiteButton;
     public Sprite ButtonSprite1;
@@ -48,11 +50,22 @@ public class QuestionScrolling : MonoBehaviour
     private int right;
     private int[] randomOrder;
     private bool changed = true;
+    private bool[] Answered;
 
     public void SubjectClicked(int Subject)
     {
         SubjectIndex = Subject;
+        Reload();
+    }
+
+    public void Reload()
+    {
         Questions = GetData();
+        Answered = new bool[Questions.Count];
+        for (int i = 0; i < Answered.Length; i++)
+        {
+            Answered[i] = false;
+        }
         randomOrder = GetRandom();
         LoadQuestionsToScroll();
     }
@@ -68,7 +81,7 @@ public class QuestionScrolling : MonoBehaviour
         {
             Debug.Log("Missing data in file!");
         }
-        
+
         Debug.LogWarning("Chyba - Špatný subject index");
         return null;
     }
@@ -86,8 +99,8 @@ public class QuestionScrolling : MonoBehaviour
             }
         }
         Debug.Log("Správná odpověď: " + right);
-        
-        if(QuestionNum % 3 == 0)
+
+        if (QuestionNum % 3 == 0)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -100,9 +113,9 @@ public class QuestionScrolling : MonoBehaviour
             }
             return;
         }
-        if ((QuestionNum-1) % 3 == 0)
+        if ((QuestionNum - 1) % 3 == 0)
         {
-                QuestionTexts[2].text = Questions[GetQuestionNum(1)][0];
+            QuestionTexts[2].text = Questions[GetQuestionNum(1)][0];
             QuestionTexts[0].text = Questions[GetQuestionNum(2)][0];
             QuestionTexts[1].text = Questions[GetQuestionNum(0)][0];
 
@@ -148,7 +161,7 @@ public class QuestionScrolling : MonoBehaviour
 
     private int[] GetRandom()
     {
-        int[] values = new int[4] {0, 0, 0, 0};
+        int[] values = new int[4] { 0, 0, 0, 0 };
         int ran;
         values[0] = Random.Range(1, 5);
 
@@ -178,7 +191,7 @@ public class QuestionScrolling : MonoBehaviour
     private int GetQuestionNumFromNegative()
     {
         int i = QuestionNum - 1;
-        if(i < 0) i = Questions.Count-1;
+        if (i < 0) i = Questions.Count - 1;
         return i;
     }
 
@@ -235,11 +248,14 @@ public class QuestionScrolling : MonoBehaviour
 
             changed = true;
             LoadQuestionsToScroll();
+
             ResetButtons();
+            if (Answered[QuestionNum] == true) CheckAnim.SetBool("Show", true);
+            else CheckAnim.SetBool("Show", false);
         }
         if (Pos.y < 0.01)
         {
-            
+
             GameObject[] help = new GameObject[3];
             help[0] = panels[0];
             help[1] = panels[1];
@@ -263,6 +279,8 @@ public class QuestionScrolling : MonoBehaviour
             changed = true;
             LoadQuestionsToScroll();
             ResetButtons();
+            if (Answered[QuestionNum] == true) CheckAnim.SetBool("Show", true);
+            else CheckAnim.SetBool("Show", false);
         }
     }
 
@@ -286,16 +304,16 @@ public class QuestionScrolling : MonoBehaviour
     private void Update()
     {
         float Y = ScrollRect.verticalNormalizedPosition;
-        if(Y < 0.6 && Y > 0.4 && Y < 1 && Y > 0 && Input.touchCount == 0)
+        if (Y < 0.6 && Y > 0.4 && Y < 1 && Y > 0 && Input.touchCount == 0)
             ScrollRect.verticalNormalizedPosition -= LerpPosition(Y);
-        else if(Input.touchCount == 0)
-        ScrollRect.verticalNormalizedPosition += LerpPosition(Y);
+        else if (Input.touchCount == 0)
+            ScrollRect.verticalNormalizedPosition += LerpPosition(Y);
 
         if (Button1Lerp)
         {
             for (int i = 0; i < Buttons1.Length; i++)
             {
-                if(i == right)
+                if (i == right)
                 {
                     Buttons1[i].image.color = Color.Lerp(Buttons1[i].image.color, RightColor, LerpSpeed);
                 }
@@ -333,12 +351,18 @@ public class QuestionScrolling : MonoBehaviour
                 }
             }
         }
+
+    }
+
+    private void OnDisable()
+    {
+        CheckAnim.SetBool("Show", false);
     }
 
     private float LerpPosition(float Y)
     {
         Y -= 0.5f;
-        Y = 0.7f*Mathf.Deg2Rad*Mathf.Tan(1.55f*Y);
+        Y = 0.7f * Mathf.Deg2Rad * Mathf.Tan(1.55f * Y);
         //Debug.Log(Y);
         //TODO: vylepsit scroll
         return Y;
@@ -350,33 +374,29 @@ public class QuestionScrolling : MonoBehaviour
         Button2Lerp = false;
         Button3Lerp = false;
 
-        Buttons1[0].image.sprite = ButtonSprite1;
-        Buttons2[0].image.sprite = ButtonSprite1;
         Buttons3[0].image.sprite = ButtonSprite1;
-
-        Buttons1[1].image.sprite = ButtonSprite2;
-        Buttons2[1].image.sprite = ButtonSprite2;
         Buttons3[1].image.sprite = ButtonSprite2;
-
-        Buttons1[2].image.sprite = ButtonSprite3;
-        Buttons2[2].image.sprite = ButtonSprite3;
         Buttons3[2].image.sprite = ButtonSprite3;
-
-        Buttons1[3].image.sprite = ButtonSprite4;
-        Buttons2[3].image.sprite = ButtonSprite4;
         Buttons3[3].image.sprite = ButtonSprite4;
+        foreach (var item in Buttons3)
+        {
+            item.image.color = Color.white;
+        }
 
+        Buttons1[0].image.sprite = ButtonSprite1;
+        Buttons1[1].image.sprite = ButtonSprite2;
+        Buttons1[2].image.sprite = ButtonSprite3;
+        Buttons1[3].image.sprite = ButtonSprite4;
         foreach (var item in Buttons1)
         {
             item.image.color = Color.white;
         }
 
+        Buttons2[0].image.sprite = ButtonSprite1;
+        Buttons2[1].image.sprite = ButtonSprite2;
+        Buttons2[2].image.sprite = ButtonSprite3;
+        Buttons2[3].image.sprite = ButtonSprite4;
         foreach (var item in Buttons2)
-        {
-            item.image.color = Color.white;
-        }
-
-        foreach (var item in Buttons3)
         {
             item.image.color = Color.white;
         }
@@ -388,24 +408,19 @@ public class QuestionScrolling : MonoBehaviour
         btns[1].image.color = Button2Color;
         btns[2].image.color = Button3Color;
         btns[3].image.color = Button4Color;
-
-        //for (int i = 0; i < btns.Length; i++)
-        //{
-        //    btns[i].enabled = false;
-        //    btns[i].enabled = true;
-        //}
     }
 
     public void AnswerClicked(int ClickIndex)
     {
         int ButtonsIndex = 0;
         if (QuestionNum % 3 == 0) ButtonsIndex = 2;
-        if ((QuestionNum-1) % 3 == 0) ButtonsIndex = 3;
-        if ((QuestionNum-2) % 3 == 0) ButtonsIndex = 1;
+        if ((QuestionNum - 1) % 3 == 0) ButtonsIndex = 3;
+        if ((QuestionNum - 2) % 3 == 0) ButtonsIndex = 1;
+        Answered[QuestionNum] = true;
+        CheckAnim.SetBool("Show", true);
 
         switch (ButtonsIndex)
         {
-            
             case 1:
                 for (int i = 0; i < Buttons1.Length; i++)
                 {
@@ -439,6 +454,6 @@ public class QuestionScrolling : MonoBehaviour
         //{
         //    Debug.Log("False");
         //}
-        
+
     }
 }
