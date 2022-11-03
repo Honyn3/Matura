@@ -44,9 +44,9 @@ public class QuestionScrolling : MonoBehaviour
     private bool Button3Lerp = false;
     public float LerpSpeed;
 
-    private int QuestionNum = 0;
+    public int QuestionNum = 0;
     private int SubjectIndex;
-    private List<string[]> Questions;
+    public List<string[]> Questions;
     private int right;
     private int[] randomOrder;
     private bool changed = true;
@@ -76,6 +76,7 @@ public class QuestionScrolling : MonoBehaviour
         {
             if (SubjectIndex == 0) return SaveSystem.LoadData().Fyzika;
             if (SubjectIndex == 1) return SaveSystem.LoadData().Matematika;
+            if (SubjectIndex == 2) return SaveSystem.LoadData().Later;
         }
         catch (System.Exception)
         {

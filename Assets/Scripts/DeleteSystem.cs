@@ -33,6 +33,10 @@ public class DeleteSystem : MonoBehaviour
         {
             Questions = SaveSystem.LoadData().Matematika;
         }
+        if (Subject == 2)
+        {
+            Questions = SaveSystem.LoadData().Later;
+        }
         Debug.Log("Poèet questions: " + Questions.Count);
 
         foreach (var item in Questions)

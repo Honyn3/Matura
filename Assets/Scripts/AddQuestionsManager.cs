@@ -82,6 +82,15 @@ public class AddQuestionsManager : MonoBehaviour
                 Debug.Log(a);
             }
         }
+        Debug.Log("Later:");
+        List<string[]> listLater = data.Later;
+        foreach (var item in listLater)
+        {
+            foreach (var a in item)
+            {
+                Debug.Log(a);
+            }
+        }
     }
 
     private void ResetText()

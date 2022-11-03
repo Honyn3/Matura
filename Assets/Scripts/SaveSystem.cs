@@ -20,6 +20,19 @@ public static class SaveSystem
         stream.Close();
     }
 
+    public static void SaveData(string[] Question)
+    {
+        BinaryFormatter formater = new BinaryFormatter();
+
+        Debug.Log(path);
+        SaveData data = new SaveData(Question);
+        FileStream stream = new FileStream(path, FileMode.Create);
+        formater.Serialize(stream, data);
+
+        Debug.Log("Closing");
+        stream.Close();
+    }
+
     public static void RemoveData(int Subject, int Index)
     {
         BinaryFormatter formater = new BinaryFormatter();

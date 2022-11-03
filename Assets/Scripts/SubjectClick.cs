@@ -55,6 +55,8 @@ public class SubjectClick : MonoBehaviour
             SubjectName.text = "Fyzika";
         if (SubjectIndex == 1)
             SubjectName.text = "Matematika";
+        if (SubjectIndex == 2)
+            SubjectName.text = "Uložené";
         scroll.SubjectClicked(SubjectIndex);
     }
 
