@@ -161,13 +161,13 @@ MonoBehaviour:
   obstacle2: {fileID: 0}
   obstacle3: {fileID: 0}
   obstacle4: {fileID: 0}
-  obstaclePrefab: {fileID: 0}
-  minObstacleY: 0
-  maxObstacleY: 0
-  minObstacleLength: 0
-  maxObstacleLength: 0
-  minObstacleSpace: 0
-  maxObstacleSpace: 0
+  obstaclePrefab: {fileID: 3687254036681278134, guid: 0a228db65764a8f42b09f3ea8eae7a9a, type: 3}
+  minObstacleY: -3.3
+  maxObstacleY: 3.3
+  minObstacleLength: 1
+  maxObstacleLength: 2.5
+  minObstacleSpace: 10
+  maxObstacleSpace: 20
 --- !u!4 &153476044
 Transform:
   m_ObjectHideFlags: 0
@@ -665,6 +665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c60ffe86c93f48ad9d4b5c7fd9753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1792997972}
 --- !u!1 &1663565386
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,3 +923,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f3c8ae075efea44a4ff34e2ba9d7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOver: 0

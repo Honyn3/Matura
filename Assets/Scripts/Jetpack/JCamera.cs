@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class JCamera : MonoBehaviour
 {
+    public JPlayer player;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,9 @@ public class JCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(5f * Time.deltaTime, 0, 0);
+        if (!player.gameOver)
+        {
+            transform.position += new Vector3(5f * Time.deltaTime, 0, 0); 
+        }
     }
 }
