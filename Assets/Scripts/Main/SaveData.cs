@@ -51,6 +51,31 @@ public class SaveData
         Ober[subjectIndex.SubjectIndex].Add(addManager.Question);
     }
 
+    //Add questions to new subjects
+    public SaveData(int subjectIndex)
+    {
+        try
+        {
+            Ober = SaveSystem.LoadData().Ober;
+            SubjectNames = SaveSystem.LoadData().SubjectNames;
+        }
+        catch (System.Exception)
+        {
+            Debug.Log("Failed to load data! Maybe empty file?");
+            return;
+        }
+
+        foreach (var item in SubjectNames)
+        {
+            Debug.Log(item);
+        }
+
+        foreach (var item in Ober[subjectIndex])
+        {
+            Ober[Ober.Count - 1].Add(item);
+        }
+    }
+
     //Add to later
     public SaveData(string[] Question)
     {

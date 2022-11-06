@@ -75,9 +75,6 @@ public class QuestionScrolling : MonoBehaviour
         try
         {
             return SaveSystem.LoadData().Ober[SubjectIndex];
-            //if (SubjectIndex == 0) return SaveSystem.LoadData().Fyzika;
-            //if (SubjectIndex == 1) return SaveSystem.LoadData().Matematika;
-            //if (SubjectIndex == 2) return SaveSystem.LoadData().Later;
         }
         catch (System.Exception)
         {
@@ -101,6 +98,12 @@ public class QuestionScrolling : MonoBehaviour
             }
         }
         Debug.Log("Správná odpověď: " + right);
+
+        if(Questions == null)
+        {
+            Debug.Log("Empty file");
+            return;
+        }
 
         if (QuestionNum % 3 == 0)
         {

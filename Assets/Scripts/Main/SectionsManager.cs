@@ -21,7 +21,7 @@ public class SectionsManager : MonoBehaviour
     private void Start()
     {
         Screen.orientation = ScreenOrientation.Portrait;
-        ShowScene();
+        //ShowScene();
         buttons[0] = Btn1.GetComponent<Image>();
         buttons[1] = Btn2.GetComponent<Image>();
         buttons[2] = Btn3.GetComponent<Image>();
@@ -41,6 +41,8 @@ public class SectionsManager : MonoBehaviour
             QuestionScrollToReload.GetComponent<QuestionScrolling>().Reload();
             AnimatorManager.SetBool("RemoveShow", false);
             AnimatorManager.SetBool("AddQuestionShow", false);
+            AnimatorManager.SetBool("AddSubject", false);
+
         }
         HideScene(Section);
         Section = btnIndex;
@@ -53,6 +55,7 @@ public class SectionsManager : MonoBehaviour
         switch (btnIndex)
         {
             case 0:
+                AnimatorManager.SetBool("AddSubject", true);
                 break;
             case 1:
                 AnimatorManager.SetBool("AddQuestionShow", true);
@@ -96,13 +99,26 @@ public class SectionsManager : MonoBehaviour
         //AnimatorManager.SetBool("SelectSubject", false);
         AnimatorManager.SetBool("RemoveShow", false);
         AnimatorManager.SetBool("AddQuestionShow", false);
+        AnimatorManager.SetBool("AddSubject", false);
 
         ShowScene();
     }
 
-    private void ShowScene()
+    public void ShowScene()
     {
         string BoolName = "Show" + Section.ToString();
         AnimatorManager.SetBool(BoolName, true);
+    }
+
+    public void SelectSubjectButtonClicked()
+    {
+        if (AnimatorManager.GetBool("ToSelectSubject")) return;
+
+        AnimatorManager.SetBool("ToSelectSubject", true);
+        AnimatorManager.SetBool("RemoveShow", false);
+        AnimatorManager.SetBool("AddQuestionShow", false);
+        AnimatorManager.SetBool("AddSubject", false);
+
+        HideScene(Section);
     }
 }

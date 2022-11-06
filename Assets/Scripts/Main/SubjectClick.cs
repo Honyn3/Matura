@@ -17,6 +17,7 @@ public class SubjectClick : MonoBehaviour
     [SerializeField] GameObject Content;
 
     [SerializeField] TMP_InputField SubjectAddInput;
+    [SerializeField] SectionsManager secMan;
 
     private List<GameObject> SubjectList = new List<GameObject>();
     private List<string> SubjectNames;
@@ -66,6 +67,7 @@ public class SubjectClick : MonoBehaviour
 
         SubjectName.text = SubjectNames[SubjectIndex];
         scroll.SubjectClicked(SubjectIndex);
+        secMan.ShowScene();
     }
 
     public void SubjectAdd() 
