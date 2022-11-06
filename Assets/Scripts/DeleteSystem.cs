@@ -13,8 +13,6 @@ public class DeleteSystem : MonoBehaviour
     public GameObject DeletePrefab;
     public GameObject Content;
     private int Subject;
-    private int Index = 0;
-
 
     public void RemoveButtonPressed()
     {
@@ -25,18 +23,7 @@ public class DeleteSystem : MonoBehaviour
         prefabs.Clear();
         Subject = ButtonClickObject.GetComponent<SubjectClick>().SubjectIndex;
 
-        if(Subject == 0)
-        {
-            Questions = SaveSystem.LoadData().Fyzika;
-        }
-        if (Subject == 1)
-        {
-            Questions = SaveSystem.LoadData().Matematika;
-        }
-        if (Subject == 2)
-        {
-            Questions = SaveSystem.LoadData().Later;
-        }
+        Questions = SaveSystem.LoadData().Ober[Subject];
         Debug.Log("Poèet questions: " + Questions.Count);
 
         foreach (var item in Questions)
@@ -47,7 +34,6 @@ public class DeleteSystem : MonoBehaviour
             prefab.GetComponentInChildren<Button>().onClick.AddListener(() => {
                 XButton(prefabs.IndexOf(prefab));
             });
-            Index++;
         }
     }
 

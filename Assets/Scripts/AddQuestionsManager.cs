@@ -15,12 +15,26 @@ public class AddQuestionsManager : MonoBehaviour
     [SerializeField] private TMP_InputField InputWrong1;
     [SerializeField] private TMP_InputField InputWrong2;
     [SerializeField] private TMP_InputField InputWrong3;
+    [SerializeField] private GameObject SelectSubjectClick;
 
     private Animator anim;
 
     private void Start()
     {
         anim = GetComponentInParent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            AddButtonPress(SelectSubjectClick.GetComponent<SubjectClick>());
+        }
+        //?? input ??
+        //if(TouchScreenKeyboard.Status == TouchScreenKeyboard.Status.Done)
+        //{
+        //    AddButtonPress(SelectSubjectClick.GetComponent<SubjectClick>());
+        //}
     }
 
     public void AddButtonPress(SubjectClick subjectClick)
@@ -58,40 +72,40 @@ public class AddQuestionsManager : MonoBehaviour
 
         SaveSystem.SaveData(this, subjectClick);
         ResetText();
-        WriteSaved();
+        //WriteSaved();
     }
 
-    public void WriteSaved()
-    {
-        SaveData data = SaveSystem.LoadData();
-        Debug.Log("Fyzika:");
-        List<string[]> listFyzika = data.Fyzika;
-        foreach (var item in listFyzika)
-        {
-            foreach (var a in item)
-            {
-                Debug.Log(a);
-            }
-        }
-        Debug.Log("Matematika:");
-        List<string[]> listMatematika = data.Matematika;
-        foreach (var item in listMatematika)
-        {
-            foreach (var a in item)
-            {
-                Debug.Log(a);
-            }
-        }
-        Debug.Log("Later:");
-        List<string[]> listLater = data.Later;
-        foreach (var item in listLater)
-        {
-            foreach (var a in item)
-            {
-                Debug.Log(a);
-            }
-        }
-    }
+    //public void WriteSaved()
+    //{
+    //    SaveData data = SaveSystem.LoadData();
+    //    Debug.Log("Fyzika:");
+    //    List<string[]> listFyzika = data.Fyzika;
+    //    foreach (var item in listFyzika)
+    //    {
+    //        foreach (var a in item)
+    //        {
+    //            Debug.Log(a);
+    //        }
+    //    }
+    //    Debug.Log("Matematika:");
+    //    List<string[]> listMatematika = data.Matematika;
+    //    foreach (var item in listMatematika)
+    //    {
+    //        foreach (var a in item)
+    //        {
+    //            Debug.Log(a);
+    //        }
+    //    }
+    //    Debug.Log("Later:");
+    //    List<string[]> listLater = data.Later;
+    //    foreach (var item in listLater)
+    //    {
+    //        foreach (var a in item)
+    //        {
+    //            Debug.Log(a);
+    //        }
+    //    }
+    //}
 
     private void ResetText()
     {

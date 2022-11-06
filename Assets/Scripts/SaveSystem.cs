@@ -16,7 +16,6 @@ public static class SaveSystem
         FileStream stream = new FileStream(path, FileMode.Create);
         formater.Serialize(stream, data);
         
-        Debug.Log("Closing");
         stream.Close();
     }
 
@@ -29,7 +28,6 @@ public static class SaveSystem
         FileStream stream = new FileStream(path, FileMode.Create);
         formater.Serialize(stream, data);
 
-        Debug.Log("Closing");
         stream.Close();
     }
 
@@ -38,6 +36,16 @@ public static class SaveSystem
         BinaryFormatter formater = new BinaryFormatter();
 
         SaveData data = new SaveData(Subject, Index);
+        FileStream stream = new FileStream(path, FileMode.Create);
+        formater.Serialize(stream, data);
+        stream.Close();
+    }
+
+    public static void AddSubject(string name)
+    {
+        BinaryFormatter formater = new BinaryFormatter();
+
+        SaveData data = new SaveData(name);
         FileStream stream = new FileStream(path, FileMode.Create);
         formater.Serialize(stream, data);
         stream.Close();
@@ -61,7 +69,6 @@ public static class SaveSystem
                 return null;
             }
 
-            Debug.Log("Closing");
             stream.Close();
             return data;
         }

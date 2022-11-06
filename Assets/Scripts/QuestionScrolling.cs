@@ -74,9 +74,10 @@ public class QuestionScrolling : MonoBehaviour
     {
         try
         {
-            if (SubjectIndex == 0) return SaveSystem.LoadData().Fyzika;
-            if (SubjectIndex == 1) return SaveSystem.LoadData().Matematika;
-            if (SubjectIndex == 2) return SaveSystem.LoadData().Later;
+            return SaveSystem.LoadData().Ober[SubjectIndex];
+            //if (SubjectIndex == 0) return SaveSystem.LoadData().Fyzika;
+            //if (SubjectIndex == 1) return SaveSystem.LoadData().Matematika;
+            //if (SubjectIndex == 2) return SaveSystem.LoadData().Later;
         }
         catch (System.Exception)
         {

@@ -7,75 +7,71 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
-    public List<string[]> Fyzika = new List<string[]>();
-    public List<string[]> Matematika = new List<string[]>();
-    public List<string[]> Later = new List<string[]>();
+    public List<List<string[]>> Ober = new List<List<string[]>>();
+    public List<string> SubjectNames = new List<string>();
 
+    //Remove
     public SaveData(int Subject, int Index)
     {
-        Fyzika = SaveSystem.LoadData().Fyzika;
-        Matematika = SaveSystem.LoadData().Matematika;
-        Later = SaveSystem.LoadData().Later;
-        if (Subject == 0)
-            Fyzika.RemoveAt(Index);
-        if (Subject == 1)
-            Matematika.RemoveAt(Index);
-        if (Subject == 2)
-            Later.RemoveAt(Index);
+        Ober = SaveSystem.LoadData().Ober;
+        SubjectNames = SaveSystem.LoadData().SubjectNames;
+        Ober[Subject].RemoveAt(Index);
     }
 
+    //Add to  Ober
+    public SaveData(string name)
+    {
+        Ober = SaveSystem.LoadData().Ober;
+        SubjectNames = SaveSystem.LoadData().SubjectNames;
+
+        SubjectNames.Add(name);
+        Ober.Add(new List<string[]>());
+    }
+
+    //Add question
     public SaveData(AddQuestionsManager addManager, SubjectClick subjectIndex)
     {
         try
         {
-            Fyzika = SaveSystem.LoadData().Fyzika;
-            Matematika = SaveSystem.LoadData().Matematika;
-            Later = SaveSystem.LoadData().Later;
+            Ober = SaveSystem.LoadData().Ober;
+            SubjectNames = SaveSystem.LoadData().SubjectNames;
         }
         catch (System.Exception)
         {
             Debug.Log("Failed to load data! Maybe empty file?");
+            return;
         }
-        
 
-        if (subjectIndex.SubjectIndex == 0)
-        Fyzika.Add(addManager.Question);
-        if (subjectIndex.SubjectIndex == 1)
-        Matematika.Add(addManager.Question);
-        if (subjectIndex.SubjectIndex == 2)
-        Later.Add(addManager.Question);
+        foreach (var item in SubjectNames)
+        {
+            Debug.Log(item);
+        }
+
+
+        Ober[subjectIndex.SubjectIndex].Add(addManager.Question);
     }
 
+    //Add to later
     public SaveData(string[] Question)
     {
         try
         {
-            Later = SaveSystem.LoadData().Later;
-            Fyzika = SaveSystem.LoadData().Fyzika;
-            Matematika = SaveSystem.LoadData().Matematika;
+            Ober = SaveSystem.LoadData().Ober;
+            SubjectNames = SaveSystem.LoadData().SubjectNames;
         }
         catch (System.Exception)
         {
             Debug.Log("Failed to load data! Maybe empty file?");
+            return;
         }
-        //Debug.Log("Clear");
-        //Later.Clear();
-        Later.Add(Question);
+        Ober[2].Add(Question);
     }
 
     public void RemoveData(int Subject, int Index)
     {
-        Fyzika = SaveSystem.LoadData().Fyzika;
-        Matematika = SaveSystem.LoadData().Matematika;
-        Later = SaveSystem.LoadData().Later;
+        Ober = SaveSystem.LoadData().Ober;
+        SubjectNames = SaveSystem.LoadData().SubjectNames;
 
-        if (Subject == 0)
-            Fyzika.RemoveAt(Index);
-
-        if (Subject == 1)
-            Matematika.RemoveAt(Index);
-
-        if (Subject == 2)
-            Later.RemoveAt(Index);
+        Ober[Subject].RemoveAt(Index);
     }
 }

@@ -16,6 +16,7 @@ public class SectionsManager : MonoBehaviour
     public GameObject QuestionScrollToReload;
 
     [SerializeField] private Animator AnimatorManager;
+    [SerializeField] private DeleteSystem delSys;
 
     private void Start()
     {
@@ -25,6 +26,7 @@ public class SectionsManager : MonoBehaviour
         buttons[1] = Btn2.GetComponent<Image>();
         buttons[2] = Btn3.GetComponent<Image>();
         buttons[3] = Btn4.GetComponent<Image>();
+        AnimatorManager.SetBool("ToSelectSubject", true);
     }
 
     public void BtnClicked(int btnIndex)
@@ -37,11 +39,34 @@ public class SectionsManager : MonoBehaviour
         if(btnIndex == 0)
         {
             QuestionScrollToReload.GetComponent<QuestionScrolling>().Reload();
+            AnimatorManager.SetBool("RemoveShow", false);
+            AnimatorManager.SetBool("AddQuestionShow", false);
         }
         HideScene(Section);
         Section = btnIndex;
         ShowScene();
         SetButtonSprites();
+    }
+
+    public void AddQuestionClicked(int btnIndex)
+    {
+        switch (btnIndex)
+        {
+            case 0:
+                break;
+            case 1:
+                AnimatorManager.SetBool("AddQuestionShow", true);
+                break;
+            case 2:
+                break;
+            case 3:
+                AnimatorManager.SetBool("RemoveShow", true);
+                delSys.RemoveButtonPressed();
+                break;
+            default:
+                break;
+        }
+        HideScene(1);
     }
 
     private void SetButtonSprites()
@@ -66,16 +91,12 @@ public class SectionsManager : MonoBehaviour
         AnimatorManager.SetBool(BoolName, false);
     }
 
-    //private IEnumerator WaitAndReset(Animator animator)
-    //{
-    //    yield return new WaitForSeconds(1f);
-    //    animator.Rebind();
-    //    animator.Update(0f);
-    //}
-
     private void ResetAnims()
     {
-        AnimatorManager.SetBool("SelectSubject", false);
+        //AnimatorManager.SetBool("SelectSubject", false);
+        AnimatorManager.SetBool("RemoveShow", false);
+        AnimatorManager.SetBool("AddQuestionShow", false);
+
         ShowScene();
     }
 
