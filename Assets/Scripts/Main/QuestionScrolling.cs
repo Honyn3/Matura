@@ -61,6 +61,11 @@ public class QuestionScrolling : MonoBehaviour
     public void Reload()
     {
         Questions = GetData();
+        if (Questions == null)
+        {
+            AnimatorManager.LoadSelectSubject();
+            return;
+        }
         Answered = new bool[Questions.Count];
         for (int i = 0; i < Answered.Length; i++)
         {

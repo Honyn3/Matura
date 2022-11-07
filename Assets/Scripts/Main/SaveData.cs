@@ -28,6 +28,16 @@ public class SaveData
         Ober.Add(new List<string[]>());
     }
 
+    //Remove subject
+    public SaveData(int Subject, string s)
+    {
+        Ober = SaveSystem.LoadData().Ober;
+        SubjectNames = SaveSystem.LoadData().SubjectNames;
+
+        SubjectNames.RemoveAt(Subject);
+        Ober.RemoveAt(Subject);
+    }
+
     //Add question
     public SaveData(AddQuestionsManager addManager, SubjectClick subjectIndex)
     {
@@ -73,6 +83,7 @@ public class SaveData
         foreach (var item in Ober[subjectIndex])
         {
             Ober[Ober.Count - 1].Add(item);
+            Debug.Log(item);
         }
     }
 

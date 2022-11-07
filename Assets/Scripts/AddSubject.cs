@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,13 +8,13 @@ public class AddSubject : MonoBehaviour
 {
     [SerializeField] private Button FilledButton;
     [SerializeField] private Button EmptyButton;
-    [SerializeField] private InputField InputField;
+    [SerializeField] private TMP_InputField InputField;
     [SerializeField] private SubjectClick sbjClick;
 
     [SerializeField] private Sprite ActiveSprite;
     [SerializeField] private Sprite DisabledSprite;
 
-    private bool Empty = true;
+    public bool Empty = true;
 
     public void AddButtonPressed()
     {
@@ -23,13 +24,14 @@ public class AddSubject : MonoBehaviour
             //Prazdne
             return;
         }
+        InputField.text = "";
 
-        
         SaveSystem.AddSubject(name);
         if (!Empty)
         {
             SaveSystem.AddDataToNewSubject(sbjClick.SubjectIndex);
         }
+        sbjClick.Load();
     }
 
     public void EmptyButtonClick()

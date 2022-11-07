@@ -27,7 +27,7 @@ public class SubjectClick : MonoBehaviour
     {
         Load();
     }
-    private void Load()
+    public void Load()
     {
         foreach (var item in SubjectList)
         {

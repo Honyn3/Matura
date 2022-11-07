@@ -15,18 +15,19 @@ public class SectionsManager : MonoBehaviour
     public Sprite[] SelectedSprites;
     public GameObject QuestionScrollToReload;
 
-    [SerializeField] private Animator AnimatorManager;
+    [SerializeField] private Animator AnimManager;
     [SerializeField] private DeleteSystem delSys;
+    [SerializeField] private SubjectDeleteSystem subjectDelSys;
 
     private void Start()
     {
         Screen.orientation = ScreenOrientation.Portrait;
-        //ShowScene();
+        AnimatorManager.Start();
         buttons[0] = Btn1.GetComponent<Image>();
         buttons[1] = Btn2.GetComponent<Image>();
         buttons[2] = Btn3.GetComponent<Image>();
         buttons[3] = Btn4.GetComponent<Image>();
-        AnimatorManager.SetBool("ToSelectSubject", true);
+        AnimManager.SetBool("ToSelectSubject", true);
     }
 
     public void BtnClicked(int btnIndex)
@@ -39,10 +40,7 @@ public class SectionsManager : MonoBehaviour
         if(btnIndex == 0)
         {
             QuestionScrollToReload.GetComponent<QuestionScrolling>().Reload();
-            AnimatorManager.SetBool("RemoveShow", false);
-            AnimatorManager.SetBool("AddQuestionShow", false);
-            AnimatorManager.SetBool("AddSubject", false);
-
+            AnimatorManager.LoadSelectSubject();
         }
         HideScene(Section);
         Section = btnIndex;
@@ -55,15 +53,17 @@ public class SectionsManager : MonoBehaviour
         switch (btnIndex)
         {
             case 0:
-                AnimatorManager.SetBool("AddSubject", true);
+                AnimatorManager.ShowPanelWhileSelectOff("AddSubject");
                 break;
             case 1:
-                AnimatorManager.SetBool("AddQuestionShow", true);
+                AnimatorManager.ShowPanelWhileSelectOff("AddQuestionShow");
                 break;
             case 2:
+                AnimatorManager.ShowPanelWhileSelectOff("RemoveSubject");
+                subjectDelSys.RemoveButtonPressed();
                 break;
             case 3:
-                AnimatorManager.SetBool("RemoveShow", true);
+                AnimatorManager.ShowPanelWhileSelectOff("RemoveShow");
                 delSys.RemoveButtonPressed();
                 break;
             default:
@@ -91,15 +91,12 @@ public class SectionsManager : MonoBehaviour
     {
         string BoolName = "Show" + sec.ToString();
         Debug.Log(BoolName);
-        AnimatorManager.SetBool(BoolName, false);
+        AnimManager.SetBool(BoolName, false);
     }
 
     private void ResetAnims()
     {
-        //AnimatorManager.SetBool("SelectSubject", false);
-        AnimatorManager.SetBool("RemoveShow", false);
-        AnimatorManager.SetBool("AddQuestionShow", false);
-        AnimatorManager.SetBool("AddSubject", false);
+        AnimatorManager.LoadSelectSubject();
 
         ShowScene();
     }
@@ -107,17 +104,16 @@ public class SectionsManager : MonoBehaviour
     public void ShowScene()
     {
         string BoolName = "Show" + Section.ToString();
-        AnimatorManager.SetBool(BoolName, true);
+        AnimatorManager.ShowPanelWhileSelectOff(BoolName);
     }
 
     public void SelectSubjectButtonClicked()
     {
-        if (AnimatorManager.GetBool("ToSelectSubject")) return;
+        if (AnimManager.GetBool("ToSelectSubject")) return;
 
-        AnimatorManager.SetBool("ToSelectSubject", true);
-        AnimatorManager.SetBool("RemoveShow", false);
-        AnimatorManager.SetBool("AddQuestionShow", false);
-        AnimatorManager.SetBool("AddSubject", false);
+        AnimManager.SetBool("ToSelectSubject", true);
+        AnimatorManager.LoadSelectSubject();
+
 
         HideScene(Section);
     }

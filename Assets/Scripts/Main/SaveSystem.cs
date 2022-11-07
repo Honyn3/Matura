@@ -53,6 +53,16 @@ public static class SaveSystem
         stream.Close();
     }
 
+    public static void RemoveSubject(int Subject)
+    {
+        BinaryFormatter formater = new BinaryFormatter();
+
+        SaveData data = new SaveData(Subject, "");
+        FileStream stream = new FileStream(path, FileMode.Create);
+        formater.Serialize(stream, data);
+        stream.Close();
+    }
+
     public static void AddSubject(string name)
     {
         BinaryFormatter formater = new BinaryFormatter();
