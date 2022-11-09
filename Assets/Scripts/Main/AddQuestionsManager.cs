@@ -43,69 +43,45 @@ public class AddQuestionsManager : MonoBehaviour
         else
         {
             //Change Color?
+            Error.ShowErrorMessage("Chybí otázka");
             return;
         }
         if (InputRightAns.text != "") Question[1] = InputRightAns.text;
         else
         {
+            Error.ShowErrorMessage("Chybí správná odpovìï");
+
             //Change Color?
             return;
         }
         if (InputWrong1.text != "") Question[2] = InputWrong1.text;
         else
         {
+            Error.ShowErrorMessage("Chybí špatná odpovìï");
+
             //Change Color?
             return;
         }
         if (InputWrong2.text != "") Question[3] = InputWrong2.text;
         else
         {
+            Error.ShowErrorMessage("Chybí špatná odpovìï");
+
             //Change Color?
             return;
         }
         if (InputWrong3.text != "") Question[4] = InputWrong3.text;
         else
         {
+            Error.ShowErrorMessage("Chybí špatná odpovìï");
+
             //Change Color?
             return;
         }
 
         SaveSystem.SaveData(this, subjectClick);
         ResetText();
-        //WriteSaved();
     }
-
-    //public void WriteSaved()
-    //{
-    //    SaveData data = SaveSystem.LoadData();
-    //    Debug.Log("Fyzika:");
-    //    List<string[]> listFyzika = data.Fyzika;
-    //    foreach (var item in listFyzika)
-    //    {
-    //        foreach (var a in item)
-    //        {
-    //            Debug.Log(a);
-    //        }
-    //    }
-    //    Debug.Log("Matematika:");
-    //    List<string[]> listMatematika = data.Matematika;
-    //    foreach (var item in listMatematika)
-    //    {
-    //        foreach (var a in item)
-    //        {
-    //            Debug.Log(a);
-    //        }
-    //    }
-    //    Debug.Log("Later:");
-    //    List<string[]> listLater = data.Later;
-    //    foreach (var item in listLater)
-    //    {
-    //        foreach (var a in item)
-    //        {
-    //            Debug.Log(a);
-    //        }
-    //    }
-    //}
 
     private void ResetText()
     {
@@ -118,6 +94,6 @@ public class AddQuestionsManager : MonoBehaviour
 
     public void RemoveButtonClick()
     {
-        anim.SetBool("RemoveShow", !anim.GetBool("RemoveShow"));
+        ResetText();
     }
 }

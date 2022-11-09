@@ -66,6 +66,7 @@ public class SubjectClick : MonoBehaviour
         anim.SetBool("ToSelectSubject", false);
 
         SubjectName.text = SubjectNames[SubjectIndex];
+        if(secMan.Section == 0)
         scroll.SubjectClicked(SubjectIndex);
         secMan.ShowScene();
     }

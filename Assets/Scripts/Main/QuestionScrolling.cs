@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,7 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-
+using Random = UnityEngine.Random;
 
 public class QuestionScrolling : MonoBehaviour
 {
@@ -52,6 +53,12 @@ public class QuestionScrolling : MonoBehaviour
     private bool changed = true;
     private bool[] Answered;
 
+    [SerializeField] private GameObject DonePanel;
+    [SerializeField] private TextMeshProUGUI Percentil;
+    [SerializeField] private TextMeshProUGUI RightAnswered;
+    [SerializeField] private TextMeshProUGUI WrongAnswered;
+    private float RightAnswers = 0, WrongAnswers = 0;
+
     public void SubjectClicked(int Subject)
     {
         SubjectIndex = Subject;
@@ -73,6 +80,8 @@ public class QuestionScrolling : MonoBehaviour
         }
         randomOrder = GetRandom();
         LoadQuestionsToScroll();
+        RightAnswers = 0;
+        WrongAnswers = 0;
     }
 
     private List<string[]> GetData()
@@ -104,8 +113,17 @@ public class QuestionScrolling : MonoBehaviour
         }
         Debug.Log("Správná odpověď: " + right);
 
-        if(Questions == null)
+        if (Questions.Count == 1)
         {
+            AnimatorManager.LoadSelectSubject();
+            Error.ShowErrorMessage("Složka musí obsahovat alespoň 2 otázky");
+            Debug.Log("ENot enough questions");
+            return;
+        }
+        if (Questions.Count == 0)
+        {
+            AnimatorManager.LoadSelectSubject();
+            Error.ShowErrorMessage("Prázdná složka");
             Debug.Log("Empty file");
             return;
         }
@@ -284,6 +302,13 @@ public class QuestionScrolling : MonoBehaviour
             {
                 QuestionNum = 0;
                 ResetPanels();
+                if (AnsweredTrue())
+                {
+                    RightAnswered.text = RightAnswers.ToString();
+                    WrongAnswered.text = WrongAnswers.ToString();
+                    Percentil.text = (GetPercentile(RightAnswers / (RightAnswers + WrongAnswers)).ToString() + "%");
+                    DonePanel.SetActive(true);
+                }
             }
 
             changed = true;
@@ -292,6 +317,28 @@ public class QuestionScrolling : MonoBehaviour
             if (Answered[QuestionNum] == true) CheckAnim.SetBool("Show", true);
             else CheckAnim.SetBool("Show", false);
         }
+    }
+
+    public void HideDonePanel()
+    {
+        DonePanel.SetActive(false);
+    }
+
+    private float GetPercentile(float num)
+    {
+        num = num * 100;
+        Math.Round(num);
+        return num;
+    }
+
+    private bool AnsweredTrue()
+    {
+        bool ans = true;
+        foreach (var item in Answered)
+        {
+            if (item == false) ans = false;
+        }
+        return ans;
     }
 
     private void ResetPanels()
@@ -422,6 +469,12 @@ public class QuestionScrolling : MonoBehaviour
 
     public void AnswerClicked(int ClickIndex)
     {
+        if (ClickIndex == right && Answered[QuestionNum] == false) RightAnswers++;
+        else if (Answered[QuestionNum] == false)
+        {
+            WrongAnswers++;
+        }
+
         int ButtonsIndex = 0;
         if (QuestionNum % 3 == 0) ButtonsIndex = 2;
         if ((QuestionNum - 1) % 3 == 0) ButtonsIndex = 3;
@@ -459,11 +512,7 @@ public class QuestionScrolling : MonoBehaviour
                 Debug.Log("Error, switch out of range. ButtonIndex:" + ButtonsIndex);
                 break;
         }
-        //if (ClickIndex == right) Debug.Log("Right");
-        //else
-        //{
-        //    Debug.Log("False");
-        //}
+        
 
     }
 }

@@ -13,11 +13,12 @@ public class SectionsManager : MonoBehaviour
     private Image[] buttons = new Image[4];
     public Sprite[] UnselectedSprites;
     public Sprite[] SelectedSprites;
-    public GameObject QuestionScrollToReload;
 
+    [SerializeField] private QuestionScrolling questScroll;
     [SerializeField] private Animator AnimManager;
     [SerializeField] private DeleteSystem delSys;
     [SerializeField] private SubjectDeleteSystem subjectDelSys;
+    [SerializeField] private SubjectClick sbjClick;
 
     private void Start()
     {
@@ -39,8 +40,9 @@ public class SectionsManager : MonoBehaviour
         }
         if(btnIndex == 0)
         {
-            QuestionScrollToReload.GetComponent<QuestionScrolling>().Reload();
-            AnimatorManager.LoadSelectSubject();
+            AnimatorManager.ReloadScene();
+            questScroll.SubjectClicked(sbjClick.SubjectIndex);
+            questScroll.Reload();
         }
         HideScene(Section);
         Section = btnIndex;
@@ -96,7 +98,7 @@ public class SectionsManager : MonoBehaviour
 
     private void ResetAnims()
     {
-        AnimatorManager.LoadSelectSubject();
+        AnimatorManager.ReloadScene();
 
         ShowScene();
     }
