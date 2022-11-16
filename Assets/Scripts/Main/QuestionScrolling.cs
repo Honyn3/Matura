@@ -68,6 +68,7 @@ public class QuestionScrolling : MonoBehaviour
     public void Reload()
     {
         Questions = GetData();
+        Debug.Log(Questions.Count);
         if (Questions == null)
         {
             AnimatorManager.LoadSelectSubject();
@@ -307,7 +308,8 @@ public class QuestionScrolling : MonoBehaviour
                     RightAnswered.text = RightAnswers.ToString();
                     WrongAnswered.text = WrongAnswers.ToString();
                     Percentil.text = (GetPercentile(RightAnswers / (RightAnswers + WrongAnswers)).ToString() + "%");
-                    DonePanel.SetActive(true);
+                    AnimatorManager.ShowDonePanel();
+                    DonePanel.GetComponent<Image>().material.SetFloat("_Percentile", RightAnswers / (RightAnswers + WrongAnswers));
                 }
             }
 
@@ -321,14 +323,22 @@ public class QuestionScrolling : MonoBehaviour
 
     public void HideDonePanel()
     {
-        DonePanel.SetActive(false);
+        Debug.Log("Hide");
+        AnimatorManager.HideDonePanel();
+        RightAnswers = 0;
+        WrongAnswers = 0;
+        for (int i = 0; i < Answered.Length; i++)
+        {
+            Answered[i] = false;
+        }
+        CheckAnim.SetBool("Show", false);
     }
 
     private float GetPercentile(float num)
     {
         num = num * 100;
-        Math.Round(num);
-        return num;
+        int ret = Mathf.RoundToInt(num);
+        return ret;
     }
 
     private bool AnsweredTrue()
@@ -475,12 +485,12 @@ public class QuestionScrolling : MonoBehaviour
             WrongAnswers++;
         }
 
-        int ButtonsIndex = 0;
-        if (QuestionNum % 3 == 0) ButtonsIndex = 2;
-        if ((QuestionNum - 1) % 3 == 0) ButtonsIndex = 3;
-        if ((QuestionNum - 2) % 3 == 0) ButtonsIndex = 1;
+        char btnIndex = content.transform.GetChild(1).name[5];
+        int ButtonsIndex = btnIndex - '0';
+
         Answered[QuestionNum] = true;
         CheckAnim.SetBool("Show", true);
+        Debug.Log("Question Num " + QuestionNum + ", ButtonsIndex " + ButtonsIndex);
 
         switch (ButtonsIndex)
         {

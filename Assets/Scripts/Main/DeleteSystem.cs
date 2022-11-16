@@ -40,6 +40,7 @@ public class DeleteSystem : MonoBehaviour
     private void XButton(int index)
     {
         Debug.Log(index);
+        
         SaveSystem.RemoveData(Subject, index);
         GameObject.Destroy(prefabs[index]);
         prefabs.RemoveAt(index);

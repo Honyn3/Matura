@@ -30,6 +30,14 @@ public class AnimatorManager : MonoBehaviour
         mAnim.SetBool("RemoveSubject", false);
 
     }
+    public static void ShowDonePanel()
+    {
+        mAnim.SetBool("DonePanel", true);
+    }
+    public static void HideDonePanel()
+    {
+        mAnim.SetBool("DonePanel", false);
+    }
     public static void ShowPanelWhileSelectOff(string name)
     {
         if(!mAnim.GetBool("ToSelectSubject")) mAnim.SetBool(name, true);

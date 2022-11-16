@@ -37,6 +37,11 @@ public class SubjectDeleteSystem : MonoBehaviour
     private void XButton(int index)
     {
         Debug.Log(index);
+        if (index <= 2)
+        {
+            Error.ShowErrorMessage("Nelze odstanit pùvodní složku");
+            return;
+        }
         SaveSystem.RemoveSubject(index);
         GameObject.Destroy(prefabs[index]);
         prefabs.RemoveAt(index);
