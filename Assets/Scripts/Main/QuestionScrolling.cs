@@ -44,6 +44,7 @@ public class QuestionScrolling : MonoBehaviour
     private bool Button2Lerp = false;
     private bool Button3Lerp = false;
     public float LerpSpeed;
+    public float ScrollLerpSpeed;
 
     public int QuestionNum = 0;
     private int SubjectIndex;
@@ -382,11 +383,11 @@ public class QuestionScrolling : MonoBehaviour
             {
                 if (i == right)
                 {
-                    Buttons1[i].image.color = Color.Lerp(Buttons1[i].image.color, RightColor, LerpSpeed);
+                    Buttons1[i].image.color = Color.Lerp(Buttons1[i].image.color, RightColor, LerpSpeed * Time.deltaTime);
                 }
                 else
                 {
-                    Buttons1[i].image.color = Color.Lerp(Buttons1[i].image.color, BadColor, LerpSpeed);
+                    Buttons1[i].image.color = Color.Lerp(Buttons1[i].image.color, BadColor, LerpSpeed * Time.deltaTime);
                 }
             }
         }
@@ -396,11 +397,11 @@ public class QuestionScrolling : MonoBehaviour
             {
                 if (i == right)
                 {
-                    Buttons2[i].image.color = Color.Lerp(Buttons2[i].image.color, RightColor, LerpSpeed);
+                    Buttons2[i].image.color = Color.Lerp(Buttons2[i].image.color, RightColor, LerpSpeed * Time.deltaTime);
                 }
                 else
                 {
-                    Buttons2[i].image.color = Color.Lerp(Buttons2[i].image.color, BadColor, LerpSpeed);
+                    Buttons2[i].image.color = Color.Lerp(Buttons2[i].image.color, BadColor, LerpSpeed * Time.deltaTime);
                 }
             }
         }
@@ -410,11 +411,11 @@ public class QuestionScrolling : MonoBehaviour
             {
                 if (i == right)
                 {
-                    Buttons3[i].image.color = Color.Lerp(Buttons3[i].image.color, RightColor, LerpSpeed);
+                    Buttons3[i].image.color = Color.Lerp(Buttons3[i].image.color, RightColor, LerpSpeed * Time.deltaTime);
                 }
                 else
                 {
-                    Buttons3[i].image.color = Color.Lerp(Buttons3[i].image.color, BadColor, LerpSpeed);
+                    Buttons3[i].image.color = Color.Lerp(Buttons3[i].image.color, BadColor, LerpSpeed * Time.deltaTime);
                 }
             }
         }
@@ -429,7 +430,7 @@ public class QuestionScrolling : MonoBehaviour
     private float LerpPosition(float Y)
     {
         Y -= 0.5f;
-        Y = 0.7f * Mathf.Deg2Rad * Mathf.Tan(1.55f * Y);
+        Y = 0.7f * Mathf.Deg2Rad * Mathf.Tan(1.55f * Y) * Time.deltaTime * ScrollLerpSpeed;
         //Debug.Log(Y);
         //TODO: vylepsit scroll
         return Y;
