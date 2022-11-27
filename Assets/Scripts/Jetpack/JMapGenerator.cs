@@ -78,7 +78,7 @@ public class JMapGenerator : MonoBehaviour
     {
         obstacle.transform.position = new Vector2(referenceX + Random.Range(minObstacleSpace, maxObstacleSpace), Random.Range(minObstacleY, maxObstacleY));
         obstacle.transform.localScale = new Vector2(obstacle.transform.localScale.x, Random.Range(minObstacleLength, maxObstacleLength));
-        int randomR = (Random.Range(0, 3));
+        int randomR = (Random.Range(0, 4));
         float rotate = 0;
         switch (randomR)
         {
