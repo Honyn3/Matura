@@ -5,11 +5,12 @@ using UnityEngine;
 public class JCamera : MonoBehaviour
 {
     public JPlayer player;
+    public float HorizontalSpeed;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        HorizontalSpeed = 0;
     }
 
     // Update is called once per frame
@@ -17,7 +18,12 @@ public class JCamera : MonoBehaviour
     {
         if (!player.gameOver)
         {
-            transform.position += new Vector3(5f * Time.deltaTime, 0, 0);
+            transform.position += new Vector3(HorizontalSpeed * Time.deltaTime, 0, 0);
         }
+    }
+
+    public void StartSpeed()
+    {
+        HorizontalSpeed = 5;
     }
 }
