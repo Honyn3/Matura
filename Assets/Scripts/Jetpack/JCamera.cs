@@ -17,7 +17,7 @@ public class JCamera : MonoBehaviour
     {
         if (!player.gameOver)
         {
-            transform.position += new Vector3(5f * Time.deltaTime, 0, 0); 
+            transform.position += new Vector3(5f * Time.deltaTime, 0, 0);
         }
     }
 }

@@ -7,6 +7,7 @@ public class JPlayer : MonoBehaviour
 {
     Rigidbody2D body;
     public bool gameOver = false;
+    public float VerticalSpeed;
     
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class JPlayer : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            body.AddForce(new Vector2(0, 3),ForceMode2D.Force);
+            body.AddForce(new Vector2(0, 1) * Time.deltaTime * VerticalSpeed,ForceMode2D.Force);
         }
         else if (Input.GetMouseButtonUp(0))
         {

@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    
     public void PlayGame()
     {
         SceneManager.LoadScene("Jetpack");
@@ -14,5 +13,6 @@ public class MainMenu : MonoBehaviour
     public void ExitGame()
     {
         SceneManager.LoadScene("Main");
+        Screen.orientation = ScreenOrientation.Portrait;
     }
 }

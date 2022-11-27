@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public void GameClicked(int index)
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         if (index == 1) SceneManager.LoadScene(index);
         if (index == 2)
         {
