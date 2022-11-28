@@ -11,6 +11,7 @@ public class JMapGenerator : MonoBehaviour
     public GameObject prevCeiling;
     public GameObject floor;
     public GameObject prevFloor;
+    
 
     public GameObject player;
 
@@ -27,6 +28,8 @@ public class JMapGenerator : MonoBehaviour
     public float maxObstacleLength;
     public float minObstacleSpace;
     public float maxObstacleSpace;
+
+    public List<string[]> otazky;
 
 
     // Start is called before the first frame update
@@ -69,9 +72,12 @@ public class JMapGenerator : MonoBehaviour
 
     GameObject generateObstacle(float referenceX)
     {
+        
         GameObject obstacle = GameObject.Instantiate(obstaclePrefab);
         setTransform(obstacle, referenceX);
         return obstacle;
+
+        
     }
 
     void setTransform(GameObject obstacle, float referenceX)
@@ -96,5 +102,10 @@ public class JMapGenerator : MonoBehaviour
                 break;
         }
         obstacle.transform.Rotate(obstacle.transform.localRotation.x, obstacle.transform.localRotation.y, rotate);
+    }
+
+    public void GetQuestions(List<string[]> quest)
+    {
+        otazky = quest;
     }
 }
