@@ -11,5 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
+    path: Assets/Scenes/button.unity
+    guid: 46452e4f068d8364098bddaa13880e99
+  - enabled: 1
+    path: Assets/Scenes/hra.unity
+    guid: c9b3a0f026036ba4f9e4f97081ef00b3
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: e1514f00bb1aa7946ab33d26c199a947, type: 2}
